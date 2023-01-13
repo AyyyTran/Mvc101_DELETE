@@ -1,0 +1,21 @@
+﻿@model string[]
+@{
+    ViewData["Title"] = "Bogus Page";
+    //gets the just date
+    var date = (System.DateTime)ViewBag.Date;
+    // same thind diff syntax
+    var date2 = (System.DateTime) ViewData["Date"]!;
+}
+
+<h1>@ViewData["Title"]</h1>
+@* <p>This is the first ASP.NET page authored by @ViewData["author"] on @ViewBag.Date!</p> *@
+@* gets just date no time *@
+<p>This is the first ASP.NET page authored by @ViewData["author"] on @date.ToShortDateString()!</p>
+
+@* passing in concrete class *@
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item</li>
+    }
+</ul>
